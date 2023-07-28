@@ -15,7 +15,7 @@ def preprocess_text(text):
     text = text.translate(str.maketrans("", "", string.punctuation))  # Remove punctuation
     words = word_tokenize(text)
     words = [word for word in words if word not in stop_words]
-    print(words)
+    # print(words)
     return " ".join(words)
 
 def load_text(file_path):
@@ -26,7 +26,7 @@ def load_text(file_path):
         for page_num in range(num_pages):
             page = pdf_reader.pages[page_num]
             text += page.extract_text()
-    print(text)
+    # print(text)
     return text
 
 
