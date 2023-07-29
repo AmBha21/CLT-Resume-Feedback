@@ -1,7 +1,7 @@
 import click
 from methods.process_text import preprocess_text, load_text
 from methods.cosine_similarity import calculate_cosine_similarity
-from firebase.firebase_utils import create_account_firebase
+from firebase.firebase_utils import create_account_firebase, sign_in_firebase
 
 @click.group()
 def cli():
@@ -26,6 +26,10 @@ def measure_cosine(resume_file, job_application_file):
 @click.option("--email", prompt="Enter email", help="Email address for account creation.")
 @click.option("--password", prompt="Enter password", hide_input=True, help="Password for account creation.")
 @click.option("--username", prompt="Enter username", help="Username for the account.")
+def sign_in(email, password, username):
+    """Create a new user account."""
+    create_account_firebase(email, password, username)
+
 def create_account(email, password, username):
     """Create a new user account."""
     create_account_firebase(email, password, username)

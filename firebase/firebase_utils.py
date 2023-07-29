@@ -28,3 +28,14 @@ def create_account_firebase(email, password, username):
     except Exception as e:
         print("Error creating account:", str(e))
         return None
+
+def sign_in_firebase(email, password):
+    try:
+        # Sign in user with Firebase Authentication
+        user = auth.get_user_by_email(email)
+        auth.get_user(user.uid)
+        print("Successfully signed in.")
+        return user.uid
+    except Exception as e:
+        print("Error signing in:", str(e))
+        return None
