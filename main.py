@@ -30,12 +30,9 @@ def sign_in(email, password, username):
     """Create a new user account."""
     create_account_firebase(email, password, username)
 
-@cli.command()
-@click.option("--email", prompt="Enter email", help="Email address for account creation.")
-@click.option("--password", prompt="Enter password", hide_input=True, help="Password for account creation.")
-def sign_in(email, password):
-    """Sign in to an existing user account."""
-    sign_in_firebase(email, password)
+def create_account(email, password, username):
+    """Create a new user account."""
+    create_account_firebase(email, password, username)
 
 if __name__ == "__main__":
     cli()
